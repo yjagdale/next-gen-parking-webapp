@@ -1,3 +1,29 @@
-page-home {
+page-register {
 
+
+  .buttonClass{
+    padding: 0 0.6em;
+    height: 50px;
+    width: 146px;
+    font-size: 1.2rem;
+    border-radius: 2px;
+    overflow: hidden;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #488aff;
+  }
+
+  .heading {
+    font-family: calibri;
+  }
+  .registerError {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    color: red;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 15px;
+  }
 }

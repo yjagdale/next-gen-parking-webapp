@@ -1,0 +1,15 @@
+page-home {
+
+  .heading {
+    font-family: calibri;
+  }
+  .loginError {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    color: red;
+  }
+  .icon {
+    font-size: 50px;
+  }
+}

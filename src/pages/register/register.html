@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Register
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="bhaitad-class">
+    <ion-item>
+      <ion-label floating>Company Name:</ion-label>
+      <ion-input type="text" [(ngModel)]="companyName"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Admin Name:</ion-label>
+      <ion-input type="text" [(ngModel)]="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Admin Email:</ion-label>
+      <ion-input type="email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Password:</ion-label>
+      <ion-input type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+
+    <div class="registerError">
+      <span *ngIf="!registerStatus">{{registerError}}</span>
+    </div>
+    <ion-item>
+      <button (click)="register()"><ion-icon ios="ios-home" md="md-home"></ion-icon></button>
+    </ion-item>
+  </div>
+</ion-content>

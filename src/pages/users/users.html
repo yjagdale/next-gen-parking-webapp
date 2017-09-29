@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <div class="userHeader">
+      <ion-title>Users</ion-title>
+      <button round ion-button small (click)="logout()">Sign Out</button>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let user of users">
+      {{user.name}}
+    </ion-item>
+  </ion-list>
+</ion-content>
