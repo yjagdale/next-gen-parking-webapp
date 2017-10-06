@@ -6,6 +6,7 @@ import { HttpModule } from "@angular/http";
 import { HomePage } from '../pages/home/home';
 import { UsersPage } from '../pages/users/users';
 import {RegisterPage} from "../pages/register/register";
+import {ToastService} from '../services/toast.service';
 
 import { HttpUtils  } from "../services/http-utils.service";
 import { LocalStorageServices  } from "../services/localStorage.service";
@@ -45,6 +46,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     UserService,
     AuthService,
     LocalStorageServices,
+    ToastService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
