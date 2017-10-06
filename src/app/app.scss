@@ -1,6 +1,5 @@
 // http://ionicframework.com/docs/theming/
 
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -14,3 +13,20 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.toastSuccess {
+  .toast-wrapper {
+    background: green;
+  }
+}
+
+.toastFailed {
+  .toast-wrapper {
+    background: #FF3232;
+  }
+}
+
+.toastWorning {
+  .toast-wrapper {
+    background: orange;
+  }
+}

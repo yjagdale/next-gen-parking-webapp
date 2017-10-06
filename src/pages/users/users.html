@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar color="primary">
     <div class="userHeader">
-      <ion-title>Users</ion-title>
+      <ion-title>Welcome {{userDetails.name}}</ion-title>
       <button round ion-button small (click)="logout()">Sign Out</button>
     </div>
   </ion-navbar>
@@ -10,7 +10,23 @@
 <ion-content padding>
   <ion-list>
     <ion-item *ngFor="let user of users">
-      {{user.name}}
+      <span (click)="openUserDetails(user)">
+        <ion-avatar item-start>
+          <img [src]="'assets/img/'+user._id+'.png'">
+        </ion-avatar>
+        <h2>{{user.name}}</h2>
+        <p>{{user.role}}</p>
+      </span>
+      <button ion-button clear item-end (click)="deleteUser(user.email)">
+        <ion-icon name="trash" ios="ios-trash" md="md-trash"></ion-icon>
+      </button>
     </ion-item>
   </ion-list>
+
+  <ion-fab right bottom>
+    <button ion-fab color="primary" [disabled]="isAdminUser" (click)="newUser()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
 </ion-content>

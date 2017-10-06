@@ -8,25 +8,17 @@
 
 <ion-content padding>
   <div class="bhaitad-class">
-
       <ion-item>
           <ion-label floating>Email Id:</ion-label>
       <ion-input type="email" [(ngModel)]="email"></ion-input>
     </ion-item>
-
-
   <ion-item>
       <ion-label floating>Password:</ion-label>
     <ion-input type="password" [(ngModel)]="password"></ion-input>
   </ion-item>
   <ion-item>
-    <div>
-      <span *ngIf="!loginStatus" class="loginError">Login Failed</span>
-    </div>
-  </ion-item>
-  <ion-item>
-    <button ion-button (click)="login()">Sign In</button>
-    <button ion-button  (click)="register()">Register</button>
+    <button ion-button (click)="login()" block>Sign In</button>
+    <button ion-button  (click)="register()" block class="buttonClass">Register</button>
   </ion-item>
   </div>
 </ion-content>

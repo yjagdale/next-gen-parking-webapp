@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Register
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="bhaitad-class">
+    <ion-item>
+      <ion-label floating>Emp. Name:</ion-label>
+      <ion-input type="text" [(ngModel)]="userName"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Emp. Email:</ion-label>
+      <ion-input type="email" [(ngModel)]="userEmail" [disabled]="mode === 'EDIT'"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Role</ion-label>
+      <ion-select [(ngModel)]="role">
+        <ion-option value="ADMIN">Admin</ion-option>
+        <ion-option value="MANAGER">Manager</ion-option>
+        <ion-option value="USER">User</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <div class="registerError">
+      <span *ngIf="!registerStatus">{{registerError}}</span>
+    </div>
+    <ion-item>
+      <button (click)="createOrUpdateUser()" ion-button>{{mode === 'EDIT' ? 'Update':'Create'}}</button>
+    </ion-item>
+  </div>
+</ion-content>
