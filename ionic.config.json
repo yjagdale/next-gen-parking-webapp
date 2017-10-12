@@ -1,8 +1,6 @@
 {
-  "name": "next-gen-parking",
-  "app_id": "8261d7d3",
+  "name": "myApp",
+  "app_id": "",
   "type": "ionic-angular",
-  "integrations": {
-    "cordova": {}
-  }
+  "integrations": {}
 }

@@ -6,6 +6,8 @@ import {AuthService} from "../../services/auth.service";
 import {LocalStorageServices} from "../../services/localStorage.service";
 import {CommonUtilsService} from "../../services/commonUtils.service";
 import {RegisterPage} from "../register/register";
+import {MenuItemService} from '../../services/menuItem.service';
+import {ListPage} from "../list/list";
 
 
 @Component({
@@ -16,7 +18,7 @@ export class HomePage {
   email: string;
   password: string;
 
-  constructor(public navCtrl: NavController, private authService: AuthService, private localStorageServices: LocalStorageServices, private commonUtilsService: CommonUtilsService) {
+  constructor(public navCtrl: NavController, private authService: AuthService, private localStorageServices: LocalStorageServices, private commonUtilsService: CommonUtilsService, private menuItemService: MenuItemService) {
 
   }
 
@@ -28,8 +30,15 @@ export class HomePage {
         this.localStorageServices.addItemToLocalStorage('user', Response.user);
         this.commonUtilsService.showToast("Logged In Successfully", "toastSuccess");
         this.navCtrl.setRoot(UsersPage);
+        this.menuItemService.setLoggedIn(true);
+        this.menuItemService.updateMenuList([
+          {title: 'List', component: ListPage},
+          {title: 'Users', component: UsersPage},
+          {title: 'Register', component: RegisterPage},
+         ])
       }, (error) => {
         this.commonUtilsService.showToast("Invalid Email or Password", "toastFailed");
+        this.menuItemService.setLoggedIn(false);
       })
   }
 

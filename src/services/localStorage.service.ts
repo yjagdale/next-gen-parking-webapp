@@ -30,4 +30,12 @@ export class LocalStorageServices {
     return this.token;
   }
 
+  isUserLoggedIn() {
+    if(this.token){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }

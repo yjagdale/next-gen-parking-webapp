@@ -1,32 +1,34 @@
-import {NgModule, ErrorHandler} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {IonicApp, IonicModule, IonicErrorHandler} from 'ionic-angular';
+import {ErrorHandler, NgModule} from '@angular/core';
+import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
+
 import {MyApp} from './app.component';
-import {HttpModule} from "@angular/http";
 import {HomePage} from '../pages/home/home';
+import {ListPage} from '../pages/list/list';
+import {RegisterPage} from '../pages/register/register';
+import {NewUser} from '../pages/newUser/newUser';
 import {UsersPage} from '../pages/users/users';
-import {NewUser} from "../pages/newUser/newUser";
-import {RegisterPage} from "../pages/register/register";
-
-import {HttpUtils} from "../services/http-utils.service";
-import {LocalStorageServices} from "../services/localStorage.service";
-import {UserService} from "../services/user.service";
-import {AuthService} from "../services/auth.service";
-import {CommonUtilsService} from "../services/commonUtils.service";
-
-import {IonicStorageModule} from '@ionic/storage';
-
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 
+import {CommonUtilsService} from '../services/commonUtils.service'
+import {UserService} from '../services/user.service'
+import {MenuItemService} from '../services/menuItem.service'
+import {AuthService} from '../services/auth.service'
+import {HttpUtils} from '../services/http-utils.service'
+import {LocalStorageServices} from '../services/localStorage.service'
+
+import {HttpModule} from "@angular/http";
+import {IonicStorageModule} from "@ionic/storage";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    UsersPage,
+    ListPage,
+    RegisterPage,
     NewUser,
-    RegisterPage
+    UsersPage
   ],
   imports: [
     BrowserModule,
@@ -39,18 +41,20 @@ import {SplashScreen} from '@ionic-native/splash-screen';
   entryComponents: [
     MyApp,
     HomePage,
-    UsersPage,
+    ListPage,
+    RegisterPage,
     NewUser,
-    RegisterPage
+    UsersPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    HttpUtils,
+    CommonUtilsService,
     UserService,
     AuthService,
-    CommonUtilsService,
+    HttpUtils,
     LocalStorageServices,
+    MenuItemService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

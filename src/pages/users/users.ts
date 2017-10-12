@@ -9,31 +9,46 @@ import {AlertController} from 'ionic-angular';
 import {NewUser} from "../newUser/newUser";
 import {CommonUtilsService} from "../../services/commonUtils.service";
 import * as _ from "lodash";
+import {MenuItemService} from "../../services/menuItem.service";
 
 
 @Component({
   selector: 'page-users',
   templateUrl: 'users.html'
 })
-export class UsersPage implements OnInit {
+export class UsersPage implements OnInit{
   users: Array<any>;
   public userDetails: any;
   isAdminUser: boolean;
 
-  constructor(public navCtrl: NavController, private userService: UserService, private localStorageServices: LocalStorageServices, public alertCtrl: AlertController, private commonUtilsService: CommonUtilsService) {
-    this.localStorageServices.getItemFromLocalStorage('user')
-      .then((value) => {
-        this.userDetails = value;
-        if (this.userDetails && this.userDetails.role !== "ADMIN") {
-          this.navCtrl.setRoot(HomePage);
-          this.isAdminUser = this.userDetails.role === "ADMIN";
-        }
-      }, (err) => {
-        console.log(err);
-      });
+  constructor(public navCtrl: NavController, private userService: UserService, private localStorageServices: LocalStorageServices, public alertCtrl: AlertController, private commonUtilsService: CommonUtilsService, private menuItemService:MenuItemService) {
+    let status = this.localStorageServices.isUserLoggedIn();
+    if(status) {
+      if (this.userDetails) {
+        this.getFiltredUser();
+      } else {
+        this.localStorageServices.getItemFromLocalStorage('user')
+          .then((value) => {
+            this.userDetails = value;
+            if (this.userDetails && this.userDetails.role !== "ADMIN") {
+              this.navCtrl.setRoot(HomePage);
+              this.isAdminUser = this.userDetails.role === "ADMIN";
+            } else {
+              this.getFiltredUser();
+            }
+          }, (err) => {
+            console.log(err);
+          });
+      }
+    }else {
+      navCtrl.setRoot(HomePage);
+    }
   }
 
   ngOnInit() {
+    if (this.userDetails) {
+      this.getFiltredUser();
+    }
   }
 
   logout() {
@@ -59,10 +74,6 @@ export class UsersPage implements OnInit {
       ]
     });
     confirm.present();
-  }
-
-  ionViewDidEnter() {
-    this.getFiltredUser();
   }
 
   getFiltredUser() {
