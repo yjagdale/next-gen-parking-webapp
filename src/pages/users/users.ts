@@ -9,7 +9,6 @@ import {AlertController} from 'ionic-angular';
 import {NewUser} from "../newUser/newUser";
 import {CommonUtilsService} from "../../services/commonUtils.service";
 import * as _ from "lodash";
-import {MenuItemService} from "../../services/menuItem.service";
 
 
 @Component({
@@ -21,7 +20,7 @@ export class UsersPage implements OnInit{
   public userDetails: any;
   isAdminUser: boolean;
 
-  constructor(public navCtrl: NavController, private userService: UserService, private localStorageServices: LocalStorageServices, public alertCtrl: AlertController, private commonUtilsService: CommonUtilsService, private menuItemService:MenuItemService) {
+  constructor(public navCtrl: NavController, private userService: UserService, private localStorageServices: LocalStorageServices, public alertCtrl: AlertController, private commonUtilsService: CommonUtilsService) {
     let status = this.localStorageServices.isUserLoggedIn();
     if(status) {
       if (this.userDetails) {

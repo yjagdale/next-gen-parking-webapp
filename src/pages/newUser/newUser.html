@@ -8,25 +8,45 @@
 </ion-header>
 
 <ion-content padding>
-  <div class="bhaitad-class">
+  
+
+  <div class="new-user">
+    <div class="user-name">
+      <div class = "label-div">
     <ion-item>
-      <ion-label floating>Emp. Name:</ion-label>
+      <ion-label>Emp. Name:</ion-label>
+      </ion-item>
+    </div>
+    <ion-item>
       <ion-input type="text" [(ngModel)]="userName"></ion-input>
     </ion-item>
+  </div>
 
+<div class="user-name">
+      <div class = "label-div">
     <ion-item>
-      <ion-label floating>Emp. Email:</ion-label>
-      <ion-input type="email" [(ngModel)]="userEmail" [disabled]="mode === 'EDIT'"></ion-input>
+      <ion-label>Emp. Email:</ion-label>
+      </ion-item>
+    </div>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="userEmail" [disabled]="mode === 'EDIT'"></ion-input>
     </ion-item>
+  </div>
+
+<div class="select-list-class">
+      <div class = "label-div">
     <ion-item>
       <ion-label>Role</ion-label>
-      <ion-select [(ngModel)]="role">
+    </ion-item>
+  </div>
+  <ion-item>
+      <ion-select [(ngModel)]="role" placeholder="Select Role">
         <ion-option value="ADMIN">Admin</ion-option>
         <ion-option value="MANAGER">Manager</ion-option>
         <ion-option value="USER">User</ion-option>
       </ion-select>
     </ion-item>
-
+</div>
     <div class="registerError">
       <span *ngIf="!registerStatus">{{registerError}}</span>
     </div>

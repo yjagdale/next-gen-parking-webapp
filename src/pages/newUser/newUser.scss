@@ -1,15 +1,14 @@
-page-home {
+page-new-user {
 
-  .heading {
-    font-family: calibri;
-  }
-  .loginError {
+ .new-user {
+         display: flex;
+        flex-direction: column;
+    }
+
+    .user-name {
     display: flex;
-    flex-direction: column;
-    flex: 1;
-    color: red;
-  }
-  .icon {
-    font-size: 50px;
-  }
+    flex-direction: row;
+    align-items: center;
+    }
+
 }

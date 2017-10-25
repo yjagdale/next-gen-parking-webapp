@@ -1,9 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Menu</ion-title>
+    <ion-title>Login</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -17,9 +14,9 @@
       <ion-label floating>Password:</ion-label>
       <ion-input type="password" [(ngModel)]="password"></ion-input>
     </ion-item>
-    <ion-item>
-      <button ion-button (click)="login()" block>Sign In</button>
+    <div class="button-class">
+      <button ion-button (click)="login()" block class="buttonClass">Sign In</button>
       <button ion-button  (click)="register()" block class="buttonClass">Register</button>
-    </ion-item>
+    </div>
   </div>
 </ion-content>

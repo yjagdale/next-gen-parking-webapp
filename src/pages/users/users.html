@@ -7,7 +7,11 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+  <div class = "no-user-message" *ngIf="users && users.length < 1"> 
+    <span class="text-class">No Users Defined Yet!!</span>
+  </div>
+  <div *ngIf="!(users && users.length < 1)"> 
   <ion-list>
     <ion-item *ngFor="let user of users">
       <span (click)="openUserDetails(user)">
@@ -22,11 +26,10 @@
       </button>
     </ion-item>
   </ion-list>
-
+</div>
   <ion-fab right bottom>
     <button ion-fab color="primary" [disabled]="isAdminUser" (click)="newUser()">
       <ion-icon name="add"></ion-icon>
     </button>
   </ion-fab>
-
 </ion-content>

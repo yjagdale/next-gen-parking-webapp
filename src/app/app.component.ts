@@ -4,11 +4,9 @@ import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 
 import {HomePage} from '../pages/home/home';
-import {RegisterPage} from '../pages/register/register';
-import {NewUser} from '../pages/newUser/newUser';
-import {UsersPage} from '../pages/users/users';
-import {ListPage} from '../pages/list/list';
+
 import {MenuItemService} from '../services/menuItem.service'
+import {Storage} from '@ionic/storage';
 
 @Component({
   templateUrl: 'app.html'
@@ -20,7 +18,7 @@ export class MyApp {
   loggedIn:boolean;
   pages: Array<{ title: string, component: any }>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private menuItemService:MenuItemService) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private menuItemService:MenuItemService, private storage: Storage) {
     this.initializeApp();
     // used for an example of ngFor and navigation
     this.pages = this.menuItemService.getMenuList();
@@ -48,5 +46,12 @@ export class MyApp {
 
   getStatus(){
     return this.menuItemService.isLoggedIn();
+  }
+
+  logout(){
+    this.storage.remove('userToken');
+    this.storage.remove('user');
+    this.menuItemService.setLoggedIn(false);
+    this.nav.setRoot(HomePage);
   }
 }

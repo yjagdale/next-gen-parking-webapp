@@ -4,7 +4,7 @@ import {NavController} from 'ionic-angular';
 import {UsersPage} from "../users/users";
 import {AuthService} from "../../services/auth.service";
 import {CommonUtilsService} from "../../services/commonUtils.service";
-import {OnInit} from '@angular/core';
+
 
 
 @Component({
