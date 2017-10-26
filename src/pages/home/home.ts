@@ -17,7 +17,7 @@ import {MenuItemService} from '../../services/menuItem.service';
 export class HomePage  implements OnInit {
   email: string;
   password: string;
-
+  mockEnable:boolean = false;
   constructor(public navCtrl: NavController, private authService: AuthService, private localStorageServices: LocalStorageServices, private commonUtilsService: CommonUtilsService, private menuItemService: MenuItemService) {
 
   }
@@ -55,6 +55,11 @@ export class HomePage  implements OnInit {
 
   showUserPage() {
     this.navCtrl.push(UsersPage);
+  }
+
+  updateAppPref() {
+    console.log(this.mockEnable);
+    this.authService.setStatus(this.mockEnable);
   }
 
 }

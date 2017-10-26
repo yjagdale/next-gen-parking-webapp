@@ -113,10 +113,19 @@ export class UsersPage implements OnInit{
   }
 
   deleteUser(userEmail: string) {
+   let currUser = _.findIndex(this.users, function (user) {
+            return user.email === userEmail;
+          });
+          if (currUser > -1) {
+            this.users.splice(currUser, 1);
+          }
     this.userService.deleteUser(userEmail).then((value) => {
       this.commonUtilsService.showToast('User Deleted Successfully', "toastSuccess");
       this.getFiltredUser();
     }, (err) => {
+    console.log('failed');
+    this.commonUtilsService.showToast('User Creation Failed', "toastFailed");
+     this.getFiltredUser();
       console.log(err);
     });
   }

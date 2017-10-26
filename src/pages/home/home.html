@@ -5,18 +5,41 @@
 </ion-header>
 
 <ion-content padding>
-  <div class="bhaitad-class">
+  <div class="user-item">
+  <div class="home-page-class">
+    <div class="user-item">
+      <div class = "label-div">
     <ion-item>
-      <ion-label floating>Email Id:</ion-label>
+      <ion-label>Email:</ion-label>
+      </ion-item>
+    </div>
+    <ion-item>
       <ion-input type="email" [(ngModel)]="email"></ion-input>
     </ion-item>
+  </div>
+
+
+<div class="user-item">
+      <div class = "label-div">
     <ion-item>
-      <ion-label floating>Password:</ion-label>
+      <ion-label>Password:</ion-label>
+      </ion-item>
+    </div>
+    <ion-item>
       <ion-input type="password" [(ngModel)]="password"></ion-input>
     </ion-item>
+  </div>
+  <div> 
+     <ion-item>
+    <ion-label>With Mock Data??</ion-label>
+    <ion-checkbox [(ngModel)]="mockEnable" (ionChange)="updateAppPref()"></ion-checkbox>
+  </ion-item>
+</div>
+
     <div class="button-class">
       <button ion-button (click)="login()" block class="buttonClass">Sign In</button>
       <button ion-button  (click)="register()" block class="buttonClass">Register</button>
     </div>
   </div>
+</div>
 </ion-content>

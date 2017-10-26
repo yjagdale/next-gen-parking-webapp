@@ -1,7 +1,7 @@
 page-home {
 
-.bhaitad-class {
-	    display: flex;
+.home-page-class {
+    display: flex;
     flex-direction: column;
 }
 
@@ -14,8 +14,19 @@ page-home {
     	margin-top:10px
 }
 
+
+.user-item {
+	display:flex;
+	flex-direction: row;
+    height: 100%;
+    align-items: center;
+}
+
 .buttonClass {
 	    margin-right: 10px;	
 	    margin-top:15px;
+}
+.label-div {
+    width: 140px;	
 }
 }
