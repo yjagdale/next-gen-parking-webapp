@@ -64,6 +64,7 @@ export class UserService {
 
   updateUser(reqBody: any, pathParam): Promise<any> {
     return new Promise((resolve, reject) => {
+      if(!this.typeStatus){
       this.httpUtils.request({url: 'api/user/' + pathParam, method: 'PUT', withToken: true}, {}, reqBody)
         .subscribe((response: Response) => {
           resolve(response.json());
@@ -71,6 +72,9 @@ export class UserService {
           console.log('get user failed');
           reject(err);
         });
+      } else {
+        resolve(this.mockUserList);
+      }
     });
   }
 

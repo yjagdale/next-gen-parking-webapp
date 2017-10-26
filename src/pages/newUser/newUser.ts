@@ -43,7 +43,7 @@ export class NewUser {
       .then((Response) => {
         this.Response = Response;
         this.commonUtilsService.showToast("User Created Successfully", "toastSuccess");
-        this.navCtrl.push(UsersPage, {afterCreateUser:true});
+        this.navCtrl.setRoot(UsersPage);
       }, (error) => {
         console.log("eeror is ", JSON.parse(error._body).error);
         this.commonUtilsService.showToast("User Creation Failed", "toastFailed");

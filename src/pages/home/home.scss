@@ -6,8 +6,7 @@ page-home {
 }
 
 
-.button-class {
-	
+.button-class {	
 	 	display: flex;
      	flex-direction: row;
     	margin-left : 10px;
@@ -17,9 +16,8 @@ page-home {
 
 .user-item {
 	display:flex;
-	flex-direction: row;
+	flex-direction: column;
     height: 100%;
-    align-items: center;
 }
 
 .buttonClass {

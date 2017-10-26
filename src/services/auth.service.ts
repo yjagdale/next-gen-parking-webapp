@@ -7,7 +7,7 @@ import {UserService} from "./user.service"
 @Injectable()
 export class AuthService {
   typeStatus:Boolean = false;
-  constructor(private httpUtils: HttpUtils, private localStorageServices: LocalStorageServices, private userService:UserService) {
+  constructor(private httpUtils: HttpUtils, private userService:UserService) {
       
   }
 
